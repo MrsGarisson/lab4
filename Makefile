@@ -1,18 +1,20 @@
 ifeq ($(KERNELRELEASE),)  
 
-KERNELDIR ?= /lib/modules/$(shell uname -r)/build 
-PWD := $(shell pwd)  
+KDIR := /lib/modules/$(shell uname -r)/build
+PWD := $(shell pwd)
 
-.PHONY: build clean  
-
-build:
-         $(MAKE) -C $(KERNELDIR) M=$(PWD) modules  
+all:
+	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
 
 clean:
-         rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c 
+	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) clean
+
+rebuild:
+	make clean
+	make all
 else  
 
 $(info Building with KERNELRELEASE = ${KERNELRELEASE}) 
-obj-m :=    module.o  
+obj-m := module.o  
 
 endif
