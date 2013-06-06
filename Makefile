@@ -1,4 +1,4 @@
-ifeq ($(KERNELRELEASE),)  
+obj-m += module.o
 
 KDIR := /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
@@ -12,9 +12,3 @@ clean:
 rebuild:
 	make clean
 	make all
-else  
-
-$(info Building with KERNELRELEASE = ${KERNELRELEASE}) 
-obj-m := module.o  
-
-endif
