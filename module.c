@@ -7,6 +7,8 @@ struct proc_dir_entry** proc_entries;
 #define _CALC_C_INC_
 #include "calc.c"
 
+
+//load module func
 int __init module_load(void)
 {
     int i;
@@ -51,7 +53,7 @@ void __exit module_unload(void)
 	kfree(procfs_buffer);
 
 	printk(KERN_INFO MODULE_PREFIX "proc entries removed.\n");
-	printk(KERN_INFO MODULE_PREFIX "Bye-bye!");
+	printk(KERN_INFO MODULE_PREFIX "Module has been unload!");
 }
 
 module_init(module_load);
