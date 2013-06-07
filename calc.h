@@ -8,15 +8,18 @@
 #include <linux/init.h>
 
 /* Module proc file name. */
+
 #define CALC_PROC "calc"
 
 /* Module proc files names. */
+
 #define PROCFS_RESULT  "calc_result"
 #define PROCFS_FIRST   "calc_first"
 #define PROCFS_SECOND  "calc_second"
 #define  PROCFS_OPERAND "calc_operator"
 
 /* Procfs maximum buffer size. */
+
 #define PROCFS_MAX_SIZE 16
 #define FILE_COUNT 4
 #define ACCESS_TOKEN 0644
